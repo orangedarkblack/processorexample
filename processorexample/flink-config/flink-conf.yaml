@@ -1,0 +1,581 @@
+# Flink Configuration
+
+# JobManager RPC address and port
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+
+# TaskManager RPC port
+taskmanager.rpc.port: 6122
+
+# Number of task slots
+taskmanager.numberOfTaskSlots: 4
+
+# Default parallelism
+parallelism.default: 1
+
+# REST port
+rest.port: 8081
+
+# Checkpointing
+execution.checkpointing.mode: EXACTLY_ONCE
+execution.checkpointing.interval: 60s
+execution.checkpointing.min-pause: 30s
+execution.checkpointing.timeout: 10m
+
+# State backend
+state.backend: hashmap
+state.checkpoints.dir: file:///tmp/flink-checkpoints
+
+# Metrics
+metrics.reporter.jmx.factory.class: org.apache.flink.metrics.jmx.JMXReporterFactory
+
+# Memory Configuration
+jobmanager.memory.process.size: 1600m
+taskmanager.memory.process.size: 2560m
+blob.server.port: 6124
+query.server.port: 6125
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+
+jobmanager.rpc.address: flink-jobmanager
+jobmanager.rpc.port: 6123
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+

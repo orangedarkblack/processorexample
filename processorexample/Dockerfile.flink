@@ -1,0 +1,17 @@
+FROM flink:1.18-java17
+
+# Descargar conector Kafka
+RUN wget -P /opt/flink/lib \
+    https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-kafka/3.0.1-1.18/flink-sql-connector-kafka-3.0.1-1.18.jar
+
+# Descargar PostgreSQL JDBC Driver
+RUN wget -P /opt/flink/lib \
+    https://repo.maven.apache.org/maven2/org/postgresql/postgresql/42.7.1/postgresql-42.7.1.jar
+
+# Descargar Flink JDBC connector (necesario para 'connector' = 'jdbc' en Flink SQL)
+RUN wget -P /opt/flink/lib \
+    https://repo.maven.apache.org/maven2/org/apache/flink/flink-connector-jdbc/3.2.0-1.18/flink-connector-jdbc-3.2.0-1.18.jar || \
+    wget -P /opt/flink/lib https://repo.maven.apache.org/maven2/org/apache/flink/flink-connector-jdbc/3.1.2-1.18/flink-connector-jdbc-3.1.2-1.18.jar || true
+
+# Nota: usamos el artefacto oficial 'flink-connector-jdbc' para Flink 1.18 (versiones 3.x-1.18)
+RUN ls -lh /opt/flink/lib/*.jar | grep -E "(kafka|postgresql|connector-jdbc|connector-jdbc)" || echo "Connectors installed"

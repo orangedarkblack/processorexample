@@ -4,7 +4,9 @@
   # Which nixpkgs channel to use.
   channel = "stable-24.05"; # or "unstable"
   # Use https://search.nixos.org/packages to find packages
-  packages = [ pkgs.python3 ];
+  packages = [ pkgs.python3 pkgs.docker pkgs.docker-compose pkgs.jdk ];
+  # El daemon de Docker se habilita con la siguiente linea:
+  services.docker.enable = true;
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [ "ms-python.python" "rangav.vscode-thunder-client" ];

@@ -1,0 +1,6 @@
+FROM confluentinc/cp-kafka:7.5.0
+WORKDIR /app
+COPY ./publish_to_kafka_loop.sh .
+USER root
+RUN chmod +x ./publish_to_kafka_loop.sh
+CMD ["./publish_to_kafka_loop.sh"]

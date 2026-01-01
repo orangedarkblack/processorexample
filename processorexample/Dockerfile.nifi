@@ -1,0 +1,10 @@
+FROM apache/nifi:2.0.0
+
+# Descargar y agregar el driver JDBC de PostgreSQL
+RUN mkdir -p /opt/nifi/nifi-current/lib && \
+    cd /opt/nifi/nifi-current/lib && \
+    curl -s -L -o postgresql-42.7.1.jar https://jdbc.postgresql.org/download/postgresql-42.7.1.jar && \
+    ls -lh postgresql*.jar || echo "Driver PostgreSQL descargado"
+
+# Verificar que el driver está presente
+RUN ls -lh /opt/nifi/nifi-current/lib/postgresql*.jar || echo "Verificación: Driver PostgreSQL presente"

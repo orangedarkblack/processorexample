@@ -1,0 +1,1 @@
+curl -X POST "http://localhost:8003/analyze" -H "Content-Type: application/json" -d '{"url": "https://www.dropbox.com/scl/fo/kzahnlcm52w3h14vi9ixs/AE0hm-ocDFgUjBcBhVgGmeQ?rlkey=53bgirpae378guxhmnunomtac&st=8ef2mvni&dl=0", "question": "¿Qué ciudad registró la mayor temperatura en semana 1, dame una respuesta consisa?"}'

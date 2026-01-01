@@ -1,0 +1,16 @@
+---- 2025-12-13T01:06:47Z Publisher started ----
+[01:06:47] Inserting user: TestUser-1765588007 / test.1765588007@example.com
+INSERT 0 1
+[01:06:49] Inserting order for user 14: TestProduct-1765588007 (18.22)
+INSERT 0 1
+[01:06:51] Inserted user(0) and order (if any)
+[01:07:06] Inserting user: TestUser-1765588026 / test.1765588026@example.com
+INSERT 0 1
+[01:07:09] Inserting order for user 15: TestProduct-1765588026 (27.64)
+INSERT 0 1
+[01:07:11] Inserted user(0) and order (if any)
+[01:07:26] Inserting user: TestUser-1765588046 / test.1765588046@example.com
+INSERT 0 1
+[01:07:29] Inserting order for user 16: TestProduct-1765588046 (70.44)
+INSERT 0 1
+[01:07:30] Inserted user(0) and order (if any)

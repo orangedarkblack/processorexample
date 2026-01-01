@@ -1,0 +1,180 @@
+version: '3.8'
+
+services:
+  # Base de datos PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: nifi
+      POSTGRES_PASSWORD: nifi123
+      POSTGRES_DB: nifi_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - data-pipeline
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nifi"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Zookeeper para Kafka
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    restart: always
+    user: root
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    volumes:
+      - zookeeper_data:/var/lib/zookeeper/data
+      - zookeeper_logs:/var/lib/zookeeper/log
+    networks:
+      - data-pipeline
+
+  # Kafka Broker
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    restart: always
+    user: root
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "9101:9101"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      KAFKA_LOG_RETENTION_HOURS: 24
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+      - ./kafka-entrypoint.sh:/kafka-entrypoint.sh
+    entrypoint: ["/bin/bash", "/kafka-entrypoint.sh"]
+    networks:
+      - data-pipeline
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c '</dev/tcp/localhost/29092' >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  # Kafka UI
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    restart: always
+    depends_on:
+      - kafka
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+    networks:
+      - data-pipeline
+
+  # Publicador de Kafka
+  kafka-publisher:
+    build:
+      context: .
+      dockerfile: Dockerfile.publisher
+    networks:
+      - data-pipeline
+    depends_on:
+      - kafka
+    restart: on-failure
+
+  # JobManager de Flink
+  flink-jobmanager:
+    build:
+      context: .
+      dockerfile: Dockerfile.flink
+    restart: always
+    command: jobmanager
+    ports:
+      - "6123:6123"
+      - "8081:8081"
+    environment:
+      JOB_MANAGER_RPC_ADDRESS: flink-jobmanager
+      FLINK_PROPERTIES: |
+        jobmanager.rpc.address: flink-jobmanager
+        jobmanager.rpc.port: 6123
+        taskmanager.numberOfTaskSlots: 4
+        parallelism.default: 1
+    volumes:
+      - ./flink-config:/opt/flink/conf
+      - flink_data:/opt/flink/checkpoints
+      - flink_ha:/opt/flink/ha
+    networks:
+      - data-pipeline
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # TaskManager de Flink
+  flink-taskmanager:
+    build:
+      context: .
+      dockerfile: Dockerfile.flink
+    restart: always
+    command: taskmanager
+    depends_on:
+      - flink-jobmanager
+    environment:
+      JOB_MANAGER_RPC_ADDRESS: flink-jobmanager
+      FLINK_PROPERTIES: |
+        jobmanager.rpc.address: flink-jobmanager
+        jobmanager.rpc.port: 6123
+        taskmanager.numberOfTaskSlots: 4
+        parallelism.default: 1
+    volumes:
+      - ./flink-config:/opt/flink/conf
+      - flink_data:/opt/flink/checkpoints
+      - flink_ha:/opt/flink/ha
+    networks:
+      - data-pipeline
+
+  # SQL Client para Flink (opcional)
+  flink-sql-client:
+    build:
+      context: .
+      dockerfile: Dockerfile.flink
+    restart: on-failure
+    command: sql-client.sh
+    depends_on:
+      - flink-jobmanager
+      - kafka
+    environment:
+      JOB_MANAGER_RPC_ADDRESS: flink-jobmanager
+    volumes:
+      - ./flink-config:/opt/flink/conf
+      - ./flink-sql-scripts:/opt/flink/scripts
+    networks:
+      - data-pipeline
+    stdin_open: true
+    tty: true
+
+volumes:
+  postgres_data:
+  flink_data:
+  flink_ha:
+  zookeeper_data:
+  zookeeper_logs:
+  kafka_data:
+
+networks:
+  data-pipeline:
+    driver: bridge
