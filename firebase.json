@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "server"
+      }
+    ]
+  },
+  "functions": {
+    "source": "simple_clock_app",
+    "runtime": "python3.11",
+    "entryPoint": "server",
+    "command": "gunicorn --workers 1 --threads 8 --timeout 0 main:app"
+  }
+}
