@@ -1,0 +1,41 @@
+Para mantener un script en ejecución después de cerrar la terminal, sigue estos pasos:
+
+### 1. Iniciar el script en segundo plano
+
+Usa el comando `nohup` (no hang up) junto con `&` al final. Esto hará que el script ignore la señal de cierre de la terminal y se ejecute en segundo plano.
+
+**Comando:**
+```bash
+nohup ./tu_script.sh > nombre_log.log 2>&1 &
+```
+
+**Ejemplo con tu script:**
+```bash
+nohup ./run_periodic_sync.sh > sync.log 2>&1 &
+```
+
+**Desglose del comando:**
+- `nohup`: Ejecuta el comando de forma inmune a las desconexiones (hang-ups).
+- `./run_periodic_sync.sh`: Tu script.
+- `> sync.log`: Redirige toda la salida estándar a un archivo llamado `sync.log`.
+- `2>&1`: Redirige los errores al mismo archivo de log.
+- `&`: Ejecuta el proceso en segundo plano.
+
+Después de ejecutarlo, el terminal te mostrará un número, que es el ID del Proceso (PID).
+
+### 2. Detener el script
+
+Como el script ya no está en tu terminal activa, no puedes usar `Ctrl+C`. Para detenerlo, necesitas su PID.
+
+**a) Encontrar el PID del script:**
+Busca en la lista de procesos activos, filtrando por el nombre de tu script.
+```bash
+ps aux | grep run_periodic_sync.sh
+```
+
+**b) Detener el proceso usando su PID:**
+Usa el comando `kill` con el PID que encontraste.
+```bash
+kill <PID_DEL_PROCESO>
+```
+(Reemplaza `<PID_DEL_PROCESO>` con el número correspondiente).
